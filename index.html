@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+
+<body>
+  <header>
+    <h1>🌟 Trending Boss Personal Dashboard</h1>
+    <nav>
+      <button id="profileBtn">Profile</button>
+      <button id="settingsBtn">Settings</button>
+    </nav>
+  </header>
+  <div id="statusBanner" aria-live="polite"></div>
+
+  <main>
+    <!-- User Profile -->
+    <section id="profile" class="card">
+      <h2>User Profile</h2>
+      <form id="profileForm" aria-label="User profile form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" required>
+
+        <button type="submit">Save Profile</button>
+      </form>
+      <div id="info" aria-live="polite"></div>
+    </section>
+
+    <!-- Notes / To-Do -->
+    <section id="notes" class="card">
+      <h2>Notes / To-Do</h2>
+      <input type="text" id="noteInput" placeholder="Add a note..." aria-label="Note input">
+      <button id="addNoteBtn">Add Note</button>
+      <ul id="notesList"></ul>
+    </section>
+
+    <!-- Fetch Posts -->
+    <section id="postsSection" class="card">
+      <h2>Posts</h2>
+      <button id="loadPostsBtn">Load Posts</button>
+      <ul id="posts"></ul>
+    </section>
+
+    <!-- File Upload & Canvas -->
+    <section id="media" class="card">
+      <h2>Media Upload</h2>
+      <div id="dropZone" tabindex="0">Drag & Drop Images Here or Click</div>
+      <input type="file" id="fileInput" multiple hidden>
+      <div id="preview" aria-live="polite"></div>
+      <canvas id="canvas"></canvas>
+    </section>
+
+    <!-- Cookies -->
+    <section id="cookies" class="card">
+      <h2>Cookies</h2>
+      <label for="cookieName">Name:</label>
+      <input type="text" id="cookieName">
+      <label for="cookieValue">Value:</label>
+      <input type="text" id="cookieValue">
+      <label for="cookieDays">Expires (days):</label>
+      <input type="number" id="cookieDays">
+      <button id="setCookieBtn">Set Cookie</button>
+      <button id="showCookiesBtn">Show Cookies</button>
+      <button id="clearCookiesBtn">Clear Cookies</button>
+      <div id="cookieList" aria-live="polite"></div>
+    </section>
+
+    <div id="cookieModal"></div>
+
+    <!-- Web Worker Example -->
+    <section id="workerSection" class="card">
+      <h2>Web Worker Task</h2>
+      <button id="startWorkerBtn">Start Heavy Calculation</button>
+      <div id="workerOutput" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Personal Dashboard - JS Mastery Practice</p>
+  </footer>
+
+  <script src="./script.js" type="module"></script>
+</body>
+
+</html>
