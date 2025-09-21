@@ -399,6 +399,22 @@ const workerOutput = document.getElementById('workerOutput');
 
 startWorkerBtn.addEventListener('click', () => {
   workerOutput.textContent = 'Worker started…';
+  startWorkerBtn.disabled = true;
+
+  const worker = new Worker('/worker.js');
+
+  worker.postMessage('start');
+
+  worker.onmessage = (e) => {
+    const data = e.data;
+    if (data.type === 'progress') {
+      workerOutput.textContent = `Progress ${data.value}%`;
+    } else if (data.type === 'done') {
+      workerOutput.textContent = data.value;
+      startWorkerBtn.disabled = false;
+    }
+  }
+
 });
 
 // === SERVICE WORKER HANDLING ===
