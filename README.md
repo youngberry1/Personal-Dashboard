@@ -36,7 +36,7 @@ Features **profile management, notes/to-do with IndexedDB, lazy-loaded posts, me
 
 ```bash
 git clone https://github.com/youngberry1/Personal-Dashboard.git
-cd personal-dashboard
+cd personal-dashboard```
 
 ⚙️ Usage
 
