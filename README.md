@@ -1,97 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+# 📊 Personal Dashboard
 
-<head>
-  <meta charset="UTF-8">
-  <title>Personal Dashboard - README</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px auto;
-      max-width: 900px;
-      padding: 0 15px;
-      background: #f9f9f9;
-      color: #333;
-    }
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=black)
+![MIT License](https://img.shields.io/badge/MIT-black?style=for-the-badge)
+![PWA](https://img.shields.io/badge/PWA-blue?style=for-the-badge)
 
-    h1,
-    h2,
-    h3 {
-      color: #222;
-    }
+A modern **Personal Dashboard Web App** built with **HTML, CSS, and JavaScript**.  
+Features **profile management, notes/to-do with IndexedDB, lazy-loaded posts, media upload, cookie handling, service workers, theme toggle, and offline detection**.
 
-    code {
-      background: #eee;
-      padding: 2px 5px;
-      border-radius: 4px;
-    }
+---
 
-    pre {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
+## 🚀 Features
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1rem 0;
-    }
+- 👤 **Profile Section** – Save and load name, age, and country with `localStorage`.
+- 📝 **Notes / To-Do Manager** – Add, edit, delete notes using **IndexedDB**.
+- 📜 **Lazy Loaded Posts** – Fetch posts via API and auto-load on scroll.
+- 📂 **Media Upload** – Drag-and-drop or select files, with preview and validation.
+- 🍪 **Cookie Manager** – Set, view, and clear cookies (`document.cookie` + `cookieStore` API).
+- ⚡ **Web Worker** – Demonstrates background task execution.
+- 🔄 **Service Worker** – Offline caching and PWA support.
+- 🎨 **Theme Toggle** – Switch between light and dark mode with persistence.
+- 🌐 **Online/Offline Status** – Real-time network detection with notifications.
 
-    table th,
-    table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
+---
 
-    table th {
-      background: #f4f4f4;
-    }
+## 🛠️ Tech Stack
 
-    .badge {
-      display: inline-block;
-      padding: 5px 10px;
-      margin: 5px 3px;
-      border-radius: 5px;
-      font-size: 14px;
-      font-weight: bold;
-      color: white;
-    }
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+)  
+- **Storage**: LocalStorage + IndexedDB  
+- **API**: JSONPlaceholder (for posts)  
+- **Web APIs**: CookieStore API, Web Workers, Service Workers, Notifications, IntersectionObserver  
 
-    .js {
-      background: #f7df1e;
-      color: #000;
-    }
+---
 
-    .mit {
-      background: #333;
-    }
+## 📦 Installation
 
-    .pwa {
-      background: #5c6bc0;
-    }
-  </style>
-</head>
+```bash
+git clone https://github.com/youngberry1/Personal-Dashboard.git
+cd personal-dashboard
 
-<body>
 
-  <h1>📊 Personal Dashboard</h1>
 
-  <p>
-    <span class="badge js">JavaScript ES6+</span>
-    <span class="badge mit">MIT License</span>
-    <span class="badge pwa">PWA Ready</span>
-  </p>
-
-  <p>
-    A **modern Personal Dashboard** web app built with <strong>HTML, CSS, and Vanilla JavaScript</strong>.
-    Demonstrates advanced web skills like <strong>IndexedDB, Web Workers, Service Workers, Canvas API, Notifications,
-      and IntersectionObserver</strong>.
-  </p>
 
   <h2>🚀 Key Features</h2>
   <ul>
@@ -138,15 +86,14 @@ cd personal-dashboard
     <li>Go offline → service worker + banner notifies status.</li>
   </ol>
 
-  <h2>📂 Project Structure</h2>
-  <pre><code>personal-dashboard/
+personal-dashboard/
 │── index.html
 │── style.css
 │── script.js
 │── worker.js
 │── service-worker.js
 │── README.md
-</code></pre>
+
 
   <h2>💡 Future Improvements</h2>
   <ul>
@@ -167,16 +114,3 @@ cd personal-dashboard
   <p><strong>Your Name</strong><br>
     🌍 GitHub: <a href="https://github.com/youngberry1">@Youngberry1</a><br>
     📧 Email: circuitlab@gmail.com</p>
-
-  <h2>🖼️ Demo / Screenshots</h2>
-  <p>Include GIFs or screenshots of the dashboard showing:</p>
-  <ul>
-    <li>Notes editor with IndexedDB</li>
-    <li>Canvas image editor (rotate/resize)</li>
-    <li>Lazy-loaded posts scrolling</li>
-    <li>Theme toggle (light/dark)</li>
-  </ul>
-
-</body>
-
-</html>
