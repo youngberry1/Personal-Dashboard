@@ -9,26 +9,26 @@ Features **profile management, notes/to-do with IndexedDB, lazy-loaded posts, me
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- 👤 **Profile Section** – Save and load name, age, and country with `localStorage`.
-- 📝 **Notes / To-Do Manager** – Add, edit, delete notes using **IndexedDB**.
-- 📜 **Lazy Loaded Posts** – Fetch posts via API and auto-load on scroll.
-- 📂 **Media Upload** – Drag-and-drop or select files, with preview and validation.
-- 🍪 **Cookie Manager** – Set, view, and clear cookies (`document.cookie` + `cookieStore` API).
-- ⚡ **Web Worker** – Demonstrates background task execution.
+- 👤 **Profile Management** – Save and load user info with `localStorage`.
+- 📝 **Notes / To-Do Manager** – Add, edit, delete notes using **IndexedDB** with persistence.
+- 📜 **Lazy-Loaded Posts** – Fetch posts via [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) and auto-load as you scroll using `IntersectionObserver`.
+- 📂 **Media Upload & Canvas** – Drag-and-drop or click-to-upload images, preview, rotate, scale, and download using `Canvas API`.
+- 🍪 **Cookie Manager** – Set, view, and clear cookies with `document.cookie` & `cookieStore` API.
+- ⚡ **Web Worker** – Background task execution without blocking UI.
 - 🔄 **Service Worker** – Offline caching and PWA support.
-- 🎨 **Theme Toggle** – Switch between light and dark mode with persistence.
-- 🌐 **Online/Offline Status** – Real-time network detection with notifications.
+- 🎨 **Theme Toggle** – Light/dark mode saved across sessions.
+- 🌐 **Network Detection** – Real-time online/offline status with notifications.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Web APIs
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+)  
-- **Storage**: LocalStorage + IndexedDB  
-- **API**: JSONPlaceholder (for posts)  
-- **Web APIs**: CookieStore API, Web Workers, Service Workers, Notifications, IntersectionObserver  
+- **Frontend:** HTML5, CSS3, JavaScript ES6+
+- **Storage:** `localStorage` + `IndexedDB`
+- **API:** JSONPlaceholder (REST)
+- **Advanced Web APIs:** CookieStore API, Web Workers, Service Workers, Notifications, IntersectionObserver, Canvas API
 
 ---
 
@@ -38,53 +38,21 @@ Features **profile management, notes/to-do with IndexedDB, lazy-loaded posts, me
 git clone https://github.com/youngberry1/Personal-Dashboard.git
 cd personal-dashboard
 
+⚙️ Usage
 
+Fill profile info → saved locally via localStorage.
 
+Manage notes → persistent storage with IndexedDB, edit/delete options included.
 
-  <h2>🚀 Key Features</h2>
-  <ul>
-    <li>👤 <strong>Profile Management</strong> – Save and load user info with <code>localStorage</code>.</li>
-    <li>📝 <strong>Notes / To-Do Manager</strong> – Add, edit, delete notes using <strong>IndexedDB</strong> with
-      persistence.</li>
-    <li>📜 <strong>Lazy-Loaded Posts</strong> – Fetch posts via <a href="https://jsonplaceholder.typicode.com/"
-        target="_blank">JSONPlaceholder API</a> and auto-load as you scroll using <code>IntersectionObserver</code>.
-    </li>
-    <li>📂 <strong>Media Upload & Canvas</strong> – Drag-and-drop or click-to-upload images, preview, rotate, scale, and
-      download using <code>Canvas API</code>.</li>
-    <li>🍪 <strong>Cookie Manager</strong> – Set, view, and clear cookies with <code>document.cookie</code> &
-      <code>cookieStore</code> API.
-    </li>
-    <li>⚡ <strong>Web Worker</strong> – Background task execution without blocking UI.</li>
-    <li>🔄 <strong>Service Worker</strong> – Offline caching and PWA support.</li>
-    <li>🎨 <strong>Theme Toggle</strong> – Light/dark mode saved across sessions.</li>
-    <li>🌐 <strong>Network Detection</strong> – Real-time online/offline status with notifications.</li>
-  </ul>
+Upload media → drag-drop or select files → preview & edit using Canvas.
 
-  <h2>🛠️ Tech Stack & Web APIs</h2>
-  <ul>
-    <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript ES6+</li>
-    <li><strong>Storage:</strong> localStorage + IndexedDB</li>
-    <li><strong>API:</strong> JSONPlaceholder (REST)</li>
-    <li><strong>Advanced Web APIs:</strong> CookieStore API, Web Workers, Service Workers, Notifications,
-      IntersectionObserver, Canvas API</li>
-  </ul>
+Manage cookies → set, view, and clear easily using both traditional & modern API.
 
-  <h2>📦 Installation</h2>
-  <pre><code>git clone https://github.com/youngberry1/Personal-Dashboard.git
-cd personal-dashboard
-</code></pre>
-  <p>Open <code>index.html</code> in your browser 🚀</p>
+Load posts → lazy-load more as you scroll with smooth performance.
 
-  <h2>⚙️ Usage</h2>
-  <ol>
-    <li>Fill profile info → saved locally via <code>localStorage</code>.</li>
-    <li>Manage notes → persistent storage with <code>IndexedDB</code>, edit/delete options included.</li>
-    <li>Upload media → drag-drop or select files → preview & edit using Canvas.</li>
-    <li>Manage cookies → set, view, and clear easily using both traditional & modern API.</li>
-    <li>Load posts → lazy-load more as you scroll with smooth performance.</li>
-    <li>Toggle theme → light/dark mode saved across sessions.</li>
-    <li>Go offline → service worker + banner notifies status.</li>
-  </ol>
+Toggle theme → light/dark mode saved across sessions.
+
+Go offline → service worker + banner notifies status.
 
 personal-dashboard/
 │── index.html
@@ -94,23 +62,26 @@ personal-dashboard/
 │── service-worker.js
 │── README.md
 
+💡 Future Improvements
 
-  <h2>💡 Future Improvements</h2>
-  <ul>
-    <li>🔑 Add user authentication</li>
-    <li>📱 Make it fully mobile-first PWA</li>
-    <li>📊 Add charts for user activity and analytics</li>
-    <li>☁️ Sync notes with cloud storage</li>
-  </ul>
+🔑 Add user authentication
 
-  <h2>🤝 Contributing</h2>
-  <p>Contributions, issues, and feature requests are welcome!
-    Fork the project and submit a PR.</p>
+📱 Make it fully mobile-first PWA
 
-  <h2>📜 License</h2>
-  <p>MIT License — free to use, modify, and distribute with attribution.</p>
+📊 Add charts for user activity and analytics
 
-  <h2>👨‍💻 Author</h2>
-  <p><strong>Your Name</strong><br>
-    🌍 GitHub: <a href="https://github.com/youngberry1">@Youngberry1</a><br>
-    📧 Email: circuitlab@gmail.com</p>
+☁️ Sync notes with cloud storage
+
+🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Fork the project and submit a PR.
+
+📜 License
+
+MIT License — free to use, modify, and distribute with attribution.
+
+👨‍💻 Author
+
+Your Name
+🌍 GitHub: @Youngberry1
