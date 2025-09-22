@@ -3,8 +3,8 @@ const CACHE_NAME = 'dashboard-cache-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
-  './style.css?v=1.0.1',
-  './script.js?v=1.0.1',
+  './style.css?v=1.0.2',
+  './script.js?v=1.0.2',
   './favicon.ico'
 ];
 
