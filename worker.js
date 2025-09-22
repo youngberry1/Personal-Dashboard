@@ -1,11 +1,18 @@
-onmessage = (e) => {
+// worker.js
+self.onmessage = function (e) {
   if (e.data === 'start') {
-    const max = 1_000_000;
-    for (let i = 1; i <= max; i++) {
-      if (i % 10_000 === 0) {
-        postMessage({ type: 'progress', value: (i / max * 100).toFixed(2) });
+    let progress = 0;
+    const total = 10000000;
+    const chunk = total / 100;
+
+    for (let i = 0; i < total; i++) {
+      Math.sqrt(i) * Math.sqrt(i);
+      if (i % chunk === 0) {
+        progress++;
+        self.postMessage({ type: 'progress', value: progress });
       }
     }
-    postMessage({ type: 'done', value: 'Computation finished!' });
+
+    self.postMessage({ type: 'done', value: 'Calculation completed successfully!' });
   }
-}
+};

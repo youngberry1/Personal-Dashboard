@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Personal Dashboard</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -12,78 +12,96 @@
 <body>
   <header>
     <h1>🌟 Trending Boss Personal Dashboard</h1>
-    <nav>
-      <button id="profileBtn">Profile</button>
-      <button id="settingsBtn">Settings</button>
+    <nav aria-label="Main navigation">
+      <button id="profileBtn" type="button" aria-controls="profileModal">Profile</button>
+      <button id="settingsBtn" type="button" aria-controls="settingsModal">Settings</button>
+      <button id="themeToggleBtn" type="button">Toggle Theme</button>
     </nav>
   </header>
-  <div id="statusBanner" aria-live="polite"></div>
+
+  <div id="statusBanner" role="status" aria-live="polite" hidden></div>
 
   <main>
-    <!-- User Profile -->
-    <section id="profile" class="card">
-      <h2>User Profile</h2>
+    <section id="profile" class="card" aria-labelledby="profileHeading">
+      <h2 id="profileHeading">User Profile</h2>
       <form id="profileForm" aria-label="User profile form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" required>
-
-        <label for="country">Country:</label>
-        <input type="text" id="country" required>
-
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required autocomplete="name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email">
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" required min="0" inputmode="numeric">
+        <label for="country">Country</label>
+        <input id="country" name="country" type="text" required autocomplete="country">
         <button type="submit">Save Profile</button>
       </form>
-      <div id="info" aria-live="polite"></div>
+      <div id="info" aria-live="polite" class="card-note"></div>
     </section>
 
-    <!-- Notes / To-Do -->
-    <section id="notes" class="card">
-      <h2>Notes / To-Do</h2>
-      <input type="text" id="noteInput" placeholder="Add a note..." aria-label="Note input">
-      <button id="addNoteBtn">Add Note</button>
-      <ul id="notesList"></ul>
+    <section id="notes" class="card" aria-labelledby="notesHeading">
+      <h2 id="notesHeading">Notes / To-Do</h2>
+      <div class="notes-controls">
+        <label for="noteInput" class="sr-only">Note</label>
+        <input id="noteInput" type="text" placeholder="Add a note..." aria-label="Note input">
+        <button id="addNoteBtn" type="button">Add Note</button>
+      </div>
+      <div class="notes-controls">
+        <button id="sortNotesBtn" type="button">Sort A-Z</button>
+        <button id="filterCompletedBtn" type="button">Show Completed</button>
+      </div>
+      <ul id="notesList" aria-live="polite" aria-label="Notes list"></ul>
     </section>
 
-    <!-- Fetch Posts -->
-    <section id="postsSection" class="card">
-      <h2>Posts</h2>
-      <button id="loadPostsBtn">Load Posts</button>
-      <ul id="posts"></ul>
+    <section id="postsSection" class="card" aria-labelledby="postsHeading">
+      <h2 id="postsHeading">Posts</h2>
+      <button id="loadPostsBtn" type="button">Load Posts</button>
+      <div id="postsContainer" style="max-height: 400px; overflow-y: auto; margin-top: 1rem;">
+        <ul id="posts" aria-live="polite"></ul>
+      </div>
     </section>
 
-    <!-- File Upload & Canvas -->
-    <section id="media" class="card">
-      <h2>Media Upload</h2>
-      <div id="dropZone" tabindex="0">Drag & Drop Images Here or Click</div>
-      <input type="file" id="fileInput" multiple hidden>
-      <div id="preview" aria-live="polite"></div>
-      <canvas id="canvas"></canvas>
+    <section id="media" class="card" aria-labelledby="mediaHeading">
+      <h2 id="mediaHeading">Media Upload</h2>
+      <div id="dropZone" tabindex="0" role="button" aria-label="Drag and drop images or click to select">
+        Drag & Drop Images Here or Click
+      </div>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden aria-hidden="true">
+      <div id="preview" aria-live="polite" class="preview-grid" aria-label="Image previews"></div>
+      <div class="canvas-wrap" aria-hidden="false">
+        <canvas id="canvas" width="600" height="400" role="img" aria-label="Canvas preview"></canvas>
+        <div class="canvas-controls" aria-label="Canvas controls">
+          <button id="rotateLeft" type="button" aria-controls="canvas">⟲ Rotate Left</button>
+          <button id="rotateRight" type="button" aria-controls="canvas">⟳ Rotate Right</button>
+          <button id="resizeSmall" type="button" aria-controls="canvas">🔎 Shrink 50%</button>
+          <button id="resizeReset" type="button" aria-controls="canvas">🔄 Reset</button>
+          <button id="downloadImage" type="button" aria-controls="canvas">⬇️ Download</button>
+        </div>
+      </div>
     </section>
 
-    <!-- Cookies -->
-    <section id="cookies" class="card">
-      <h2>Cookies</h2>
-      <label for="cookieName">Name:</label>
-      <input type="text" id="cookieName">
-      <label for="cookieValue">Value:</label>
-      <input type="text" id="cookieValue">
-      <label for="cookieDays">Expires (days):</label>
-      <input type="number" id="cookieDays">
-      <button id="setCookieBtn">Set Cookie</button>
-      <button id="showCookiesBtn">Show Cookies</button>
-      <button id="clearCookiesBtn">Clear Cookies</button>
-      <div id="cookieList" aria-live="polite"></div>
+    <section id="cookies" class="card" aria-labelledby="cookiesHeading">
+      <h2 id="cookiesHeading">Cookies</h2>
+      <label for="cookieName">Name</label>
+      <input id="cookieName" type="text" inputmode="text">
+      <label for="cookieValue">Value</label>
+      <input id="cookieValue" type="text">
+      <label for="cookieDays">Expires (days)</label>
+      <input id="cookieDays" type="number" min="0">
+      <div class="cookies-actions">
+        <button id="setCookieBtn" type="button">Set Cookie</button>
+        <button id="showCookiesBtn" type="button">Show Cookies</button>
+        <button id="clearCookiesBtn" type="button">Clear Cookies</button>
+      </div>
+      <div id="cookieList" aria-live="polite" class="cookie-list"></div>
     </section>
 
-    <div id="cookieModal"></div>
-
-    <!-- Web Worker Example -->
-    <section id="workerSection" class="card">
-      <h2>Web Worker Task</h2>
-      <button id="startWorkerBtn">Start Heavy Calculation</button>
-      <div id="workerOutput" aria-live="polite"></div>
+    <section id="workerSection" class="card" aria-labelledby="workerHeading">
+      <h2 id="workerHeading">Web Worker Task</h2>
+      <button id="startWorkerBtn" type="button">Start Heavy Calculation</button>
+      <div id="progressContainer" aria-hidden="false" aria-label="Computation progress">
+        <div id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+      </div>
+      <div id="workerOutput" aria-live="polite" class="worker-output"></div>
     </section>
   </main>
 
@@ -91,7 +109,28 @@
     <p>Personal Dashboard - JS Mastery Practice</p>
   </footer>
 
-  <script src="./script.js" type="module"></script>
+  <div id="settingsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+    <div class="modal-content" role="document">
+      <h2 id="settingsTitle">Settings</h2>
+      <button id="modalToggleThemeBtn" type="button">Toggle Theme</button>
+      <button id="clearDataBtn" type="button">Clear All Data</button>
+      <button id="closeSettingsBtn" type="button" aria-label="Close settings">Close</button>
+    </div>
+  </div>
+
+  <div id="profileModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle" hidden>
+    <div class="modal-content">
+      <h2 id="profileTitle">Profile (Coming Soon)</h2>
+      <p>Will allow editing profile in a popup.</p>
+      <button id="closeProfileBtn" type="button">Close</button>
+    </div>
+  </div>
+
+  <div id="cookieModal" role="alert" aria-live="assertive" class="toast" hidden></div>
+  <div id="noteModal" role="status" aria-live="assertive" class="note-modal" hidden></div>
+
+  <script src="./script.js">
+  </script>
 </body>
 
 </html>
